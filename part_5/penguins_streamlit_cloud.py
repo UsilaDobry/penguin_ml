@@ -11,6 +11,10 @@ st.title("Классификатор пингвинов")
 st.write("Это приложение использует 6 признаков для прогнозирования вида пингвина с помощью модели случайного леса, обученной на наборе "
          "Пингвины Палмера. Используйте для заполнения форму ниже!")
 
+password_guess = st.text_input("Введите пароль")
+if password_guess != st.secrets["password"]:
+    st.stop()
+
 penguin_file = st.file_uploader("Загрузите ваши данные с характеристиками пингвинов")
 if penguin_file is None:
     with open('./part_5/random_forest_penguin.pickle', 'rb') as rf_pickle:
