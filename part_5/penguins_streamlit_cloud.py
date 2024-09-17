@@ -13,11 +13,11 @@ st.write("Это приложение использует 6 признаков 
 
 penguin_file = st.file_uploader("Загрузите ваши данные с характеристиками пингвинов")
 if penguin_file is None:
-    with open('./part_4/random_forest_penguin.pickle', 'rb') as rf_pickle:
+    with open('./part_5/random_forest_penguin.pickle', 'rb') as rf_pickle:
         rfc = pickle.load(rf_pickle)
-    with open('./part_4/output_penguin.pickle', 'rb') as map_pickle:
+    with open('./part_5/output_penguin.pickle', 'rb') as map_pickle:
         unique_penguin_mapping = pickle.load(map_pickle)
-    penguin_df = pd.read_csv('./part_4/penguins.csv')
+    penguin_df = pd.read_csv('./part_5/penguins.csv')
 else:
     penguin_df = pd.read_csv(penguin_file)
     penguin_df = penguin_df.dropna()
@@ -77,7 +77,7 @@ st.write(
     "Мы использовали модель машинного обучения (модель случайного леса) для прогнозирования "
     "вида, признаки, использованные в прогнозе, проранжированы по важности ниже."
 )
-st.image("./part_4/feature_importance.png")
+st.image("./part_5/feature_importance.png")
 st.write(
     "Ниже приведены гистограммы распределений трех переменных по трем видам пингвинов, вертикальная линия соответствует "
     "введенному значению для соответствующей переменной."
